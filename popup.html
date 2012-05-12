@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Twittext</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="css/popup.css" type="text/css" media="all" />
+        <script data-main="js/main" src="js/libs/require/require.js"></script>
+    </head>
+    <body>
+        
+        <div class="timeline">
+            <div id="home-timeline" class="tweets">
+                
+            </div>
+            <div class="loading-tweets">
+                <div>
+                    An error has occurred while loading tweets.<br />
+                    <a href="#" class="try-again">Try again.</a>
+                </div>
+            </div>
+        </div>
+        
+        <button class="btn btn-large btn-info" id="sign-in-with-twitter">Sign in with <strong>twitter</strong></button>
+        
+        <!-- modals -->
+        <div id="areYouSureModal" class="modal hide fade" style="display: none; ">
+            <div class="modal-body">
+                <h3>Are you sure?</h3>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn" data-dismiss="modal">No</a>
+                <a href="#" class="btn btn-primary">Yes</a>
+            </div>
+        </div>
+        
+        <div class="modal hide fade" id="ip" style="display: none">
+            <a class="close-link" data-dismiss="modal">Close</a>
+            <div class="modal-body">
+                <a href="#" target="_blank" class="image">
+                    <img src="images/ajax-loader.gif" class="preload" alt="" />
+                </a>
+                <div class="tweet-holder">
+
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,369 @@
+body {
+    width: 540px;
+    margin: 0;
+    font: 14px/18px "HelveticaNeue","Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+    min-height: 50px;
+}
+
+a {
+    color: #0084B4;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+a.external:visited {
+    color: #61C;
+}
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+}
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background: rgba(0,0,0,0.15); 
+    -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(0,0,0,0.05);
+}
+
+.timeline {
+    max-height: 550px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.timeline .tweets {
+    
+}
+.timeline .tweet:first-child {
+    margin-top: 0;
+}
+#home-timeline {
+    margin-right: 1px;
+}
+
+.tweet .avatar,
+.tweet a.rt_account,
+.tweet a.rt_account img, 
+.tweet .media,
+.tweet .media img {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.tweet {
+    position: relative;
+    min-height: 50px;
+    box-sizing: border-box;
+    padding: 9px 12px 9px 70px;
+    
+    background-size: 100% 1px, 100% 1px, auto;
+    background-position: 50% 100%, 50% 100%, 50% 0;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-origin: padding-box, border-box, padding-box;
+    border-bottom: 1px solid transparent;        
+    background-image: -webkit-linear-gradient(0deg, rgba(0,0,0,0.01), rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.01));
+
+}
+.tweet .header .time {
+    float: right;
+    font-size: 12px;
+    color: #999;
+    margin-right: 5px;
+}
+.tweet:hover .header .time {
+    display: none;
+}
+.tweet .header .open {
+    color: #999;
+    float: right;
+    font-size: 12px;
+    display: none;
+    margin-right: 4px;
+}
+.tweet .header .open:hover {
+    color: #005580
+}
+.tweet:hover .header .open {
+    display: block;
+}
+
+.tweet .fullname {
+    font-weight: bold;
+    color: #333;
+    display: inline-block;
+    margin-right: 7px;
+}
+.tweet .username {
+    font-size: 12px;
+    color: #999;
+}
+.tweet .username s {
+    color: #CCC;
+    font-size: 12px;
+    text-decoration: none;
+}
+.tweet .username b {
+    font-weight: normal;
+}
+.tweet a.account {
+    text-decoration: none;
+}
+.tweet a.account:hover .fullname {
+    color: #0084B4;
+    text-decoration: underline;
+}
+.tweet .avatar {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 48px;
+    height: 48px;
+}
+.tweet .text {
+    margin: 9px 22px 9px 0;
+}
+.tweet a.rt_account {
+    position: absolute;
+    top: 33px;
+    left: 33px;
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: 1px;
+}
+.tweet a.rt_account:hover {
+    margin: 0px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+.tweet a.rt_account img {
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+.tweet .text a.media {
+    display: inline-block;
+    text-decoration: none;
+    margin: 3px 0;
+    margin-right: 10px;
+    cursor: url(../images/magnify.cur), pointer;
+}
+.tweet a.media:hover {
+    -webkit-box-shadow:  1px 1px 3px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow:  1px 1px 3px 0px rgba(0, 0, 0, 0.5);
+    box-shadow:  1px 1px 3px 0px rgba(0, 0, 0, 0.5);
+}
+.tweet a.media img {
+    width: 70px;
+    height: 70px;
+    display: block;
+}
+.tweet span.m-wrp {
+    display: block;
+    margin-bottom: -10px;
+    margin-top: 7px;
+}
+.tweet .text a.mention:hover {
+    text-decoration: none;
+} 
+.tweet .text a.mention s {
+    text-decoration: none;
+} 
+.tweet .text a.mention b {
+    font-weight: normal;
+} 
+.tweet .text a.mention:hover b {
+    text-decoration: underline;
+}
+.tweet .rt_by {
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+}
+.tweet .rt_by i {
+    display: inline-block;
+    background: url('../images/twitter_sprite.png') no-repeat -78px -4px;
+    width: 14px;
+    height: 8px;
+}
+.tweet .rt_by strong {
+    font-weight: normal;
+}
+.tweet .rt_by:hover strong {
+    text-decoration: underline;
+}
+.tweet .actions {
+    position: absolute;
+    width: 15px;
+    top: 30px;
+    right: 16px;
+    height: 40px;
+}
+.tweet .actions a {
+    display: block;
+    width: 14px;
+    height: 14px;
+    margin-bottom: 5px;
+    display: none;
+}
+.tweet:hover .actions a {
+    display: block;
+}
+.tweet .actions .retweet {
+    background: url('../images/twitter_sprite.png') no-repeat -78px 0;
+}
+.tweet .actions .retweet:hover {
+    background-position: -94px 0;
+}
+.tweet.is-mine .actions .retweet {
+    display: none !important;
+}
+.tweet .actions .retweet.active {
+    background-position: -110px 0 !important;
+    display: block !important;
+}
+.tweet .actions .favorite {
+    background: url('../images/twitter_sprite.png') no-repeat -30px 0;
+    width: 15px;
+    height: 15px;
+}
+.tweet .actions .favorite.active {
+    background-position: -62px 0 !important;
+    display: block !important;
+}
+.tweet .actions .favorite:hover {
+    background-position: -46px 0;
+}
+.tweet .actions .delete {
+    display: none !important;
+}
+.tweet.is-mine:hover .actions .delete {
+    display: block !important;
+}
+.tweet .actions .delete{
+    background: url('../images/twitter_sprite.png') no-repeat -125px 0;
+}
+.tweet .actions .delete:hover {
+    background-position: -139px 0;
+}
+
+.img-preload {
+    position: absolute;
+    left: -99999px;
+    top: -99999px;
+    display: block;
+}
+#ip {
+    width: 500px;
+    margin: 0 0 0 -250px;
+    top: 4%;
+    max-height: 505px;
+}
+#ip .modal-body {
+    max-height: none;
+    clear: right;
+    padding-top: 0;
+}
+#ip .close-link {
+    display: inline-block;
+    float: right;
+    padding: 10px;
+    padding-bottom: 0;
+    cursor: pointer;
+    font-size: 12px;
+}
+#ip .close-link:hover {
+    text-decoration: underline;
+}
+#ip .image {
+    display: block;
+    margin: 5px auto;
+    margin-bottom: 10px;
+    width: 400px;
+    text-align: center;
+}
+#ip .image img {
+    display: inline-block;
+    border-radius: 5px;
+}
+#ip .image .preload {
+    height: 31px;
+    width: 31px;
+    margin: 135px auto;
+    border-radius: 0;
+    display: block;
+}
+#ip .tweet .media,
+#ip .tweet .actions {
+    display: none !important;
+}
+#ip .tweet {
+    background-image: none !important;
+}
+#ip .tweet .rt_by {
+    display: inline-block;
+    padding-top: 5px;
+}
+
+#areYouSureModal {
+    width: 300px;
+    margin: -150px 0 0 -150px
+}
+.modal.fade {
+    -webkit-transition: opacity .1s linear, top .1s ease-out;
+    -moz-transition: opacity .1s linear, top .1s ease-out;
+    -o-transition: opacity .1s linear, top .1s ease-out;
+    transition: opacity .1s linear, top .1s ease-out;
+}
+
+.timeline .loading-tweets {
+    display: none;
+    height: 80px;
+    padding: 10px;
+    box-sizing: border-box;
+    color: #999;
+    background: url(../images/ajax-loader.gif) 50% 50% no-repeat;
+    padding-top: 18px;
+    font-size: 13px;
+}
+.timeline.autoload .loading-tweets {
+    display: block;
+}
+.timeline .loading-tweets .load-error {
+    display: none;
+    text-align: center;
+}
+.timeline .loading-tweets.load-error {
+    background: none;
+}
+.timeline .loading-tweets div {
+    display: none;
+    text-align: center;
+}
+.timeline .loading-tweets.load-error div {
+    display: block;
+}
+
+
+
+body.sign-in {
+    min-height: 0;
+    width: 153px;
+}
+#sign-in-with-twitter {
+    display: none;
+}
+body.sign-in #sign-in-with-twitter {
+    display: block;
+}
+body.sign-in .timeline {
+    display: none;
+}
+body.sign-in .sign_in_with_twitter {
+    display: block !important;
+}

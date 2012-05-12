@@ -1,0 +1,9 @@
+<% if (screen_name) { %>
+    <div class="username">
+        <img src="https://api.twitter.com/1/users/profile_image?screen_name=<%=screen_name%>&size=normal" />​​​​​​​​​​​​​​​​​​​​​
+        @<%=screen_name%>
+        <a class="btn btn-danger pull-right sign-out" href="#">Sign out</a>
+    </div>
+<% } else { %>
+    <a class="btn btn-info sign-in" href="#">Sign in with <strong>twitter</strong></a>
+<% } %>

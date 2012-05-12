@@ -1,0 +1,26 @@
+body {
+    background: #F0F0F0;
+}
+h2.name {
+    text-shadow: 1px 1px 1px white;
+}
+.wrp {
+    position: relative;
+    min-width: 1024px;
+    padding-top: 75px;
+}
+.username {
+    color: #8C8C8C;
+    font-size: 14px;
+    font-weight: bold;
+}
+.username img {
+    height: 48px;
+    width: 48px;
+    display: inline-block;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+.username .btn {
+    margin-top: 10px;
+}

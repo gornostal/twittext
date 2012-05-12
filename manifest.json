@@ -1,0 +1,23 @@
+{
+    "name": "Twittext",
+    "description": "A lightweight Google Chrome (Chromium) extension for Twitter",
+    "background_page": "background.html",
+
+    "browser_action": {
+        "default_icon": "images/icon_19.png",
+        "default_title": "Twittext",
+        "popup": "popup.html"
+    },
+    "icons": {
+        "128": "images/icon_128.png",
+        "19": "images/icon_19.png",
+        "48": "images/icon_48.png"
+    },
+    "options_page": "options.html",
+    "version": "0.9.0",
+    "permissions": [
+        "tabs",
+        "https://api.twitter.com/",
+        "https://userstream.twitter.com/"
+    ]
+}

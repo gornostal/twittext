@@ -1,0 +1,33 @@
+<div class="tweet <%=is_mine ? 'is-mine' : ''%>" id="<%=id%>" data-post_id="<%=post_id%>">
+    <div class="header">
+        <a href="https://twitter.com/<%=user.screen_name%>" target="_blank" class="account">
+            <img src="<%= user.profile_image_url_https%>" alt="<%=user.name%>" class="avatar" />
+            <strong class="fullname"><%=user.name%></strong>
+            <span class="username">
+                <s>@</s><b><%=user.screen_name%></b>
+            </span>
+        </a>
+        <% if (retweeted_by) { %>
+            <a href="https://twitter.com/<%=retweeted_by.screen_name%>" title="Retweeted by <%=retweeted_by.name%>" target="_blank" class="rt_account">
+                <img src="<%=retweeted_by.profile_image_url_https%>" 
+                 alt="<%=retweeted_by.name%>" />
+            </a>
+        <% } %>
+        <div class="actions">
+            <a href="#" class="retweet <%=retweeted ? 'active' : '' %>" title="Retweet"></a>
+            <a href="#" class="favorite <%=favorited ? 'active' : '' %>" title="Favorite"></a>
+            <a href="#" class="delete" title="Delete"></a>
+        </div>
+        <small class="time"></small>
+        <a target="_blank" href="https://twitter.com/<%= retweeted_by ? 
+           retweeted_by.screen_name : user.screen_name%>/status/<%=post_id%>" class="open">Open</a>
+    </div>
+    <p class="text"><%=text%></p>
+    <div class="footer">
+        <% if (retweeted_by) { %>
+            <a target="_blank" href="https://twitter.com/<%=retweeted_by.screen_name%>" title="Retweeted by <%=retweeted_by.name%>" class="rt_by">
+                <i></i> by <strong><%=retweeted_by.name%></strong>
+            </a>
+        <% } %>
+    </div>
+</div>  
