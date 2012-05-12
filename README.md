@@ -3,6 +3,7 @@
 
 ## Features
 * View home timeline
+* It uses Twitter's Streaming API, so new tweets will be displayed instantly
 * Retweet, Favorite, Remove
 * Image previews
 
