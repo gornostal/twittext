@@ -127,11 +127,13 @@ a.external:visited {
 }
 .tweet .text {
     margin: 9px 22px 9px 0;
+    color: #333;
+    font-size: 14px;
 }
 .tweet a.rt_account {
     position: absolute;
     top: 33px;
-    left: 33px;
+    left: 32px;
     width: 30px;
     height: 30px;
     display: block;
