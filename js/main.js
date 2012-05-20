@@ -11,7 +11,8 @@ require.config({
         entities: 'twitter/entities',
         streaming: 'twitter/streaming',
         oauth: 'twitter/oauth',
-        bootstrap: 'libs/twitter/bootstrap'
+        bootstrap: 'libs/twitter/bootstrap',
+        twitterText: 'twitter/text'
     }
 });
 

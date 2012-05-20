@@ -51,6 +51,18 @@ define(['underscore', 'streaming'], function (_, TwitterStreaming) {
                     method: 'post',
                     success: callback
                 });
+            },
+            send: function (text, callback, error) {
+                oauth.sendRequest({
+                    url: '1/statuses/update.json',
+                    method: 'post',
+                    params: {
+                        status: text,
+                        include_entities: true
+                    },
+                    success: callback,
+                    error: error
+                });
             }
         };
     };

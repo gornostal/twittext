@@ -9,8 +9,10 @@ define([
     'oauth',
     'modules/preprocessTweet',
     'models/tweet',
-    'modules/lastReadTime'
-], function ($, _, Backbone, tweets, TweetView, Badge, TwitterApi, OAuth, preprocessTweet, Tweet, LastReadTime) {
+    'modules/lastReadTime',
+    'twitterText'
+], function ($, _, Backbone, tweets, TweetView, Badge, TwitterApi, OAuth, 
+            preprocessTweet, Tweet, LastReadTime, twitterText) {
 
     var oauth = new OAuth(),
         twitter = new TwitterApi(oauth),
@@ -52,6 +54,8 @@ define([
                     badge.resetUnread();
                 }
             });
+            
+            this.initNewTweet();
 
             new Badge().resetUnread();
             new LastReadTime().set(Math.round(new Date().getTime() / 1000));
@@ -138,6 +142,91 @@ define([
                 method: 'authorize'
             });
             window.close();
+        },
+        
+        initNewTweet: function () {
+            var $newTweet = $('.new-tweet'),
+                keyPressTimeout,
+                tweeting = false,
+                $tweeting = $newTweet.find('.tweeting'),
+                $send = $newTweet.find('.send'),
+                $remain = $newTweet.find('.remain'),
+                $tweetHolder = $('#home-timeline'),
+                $flashMsg = $newTweet.find('.flash-msg'),
+                $input = $newTweet.find('.tweet-editor');
+                
+            $('.new-tweet-toggle')
+                .tooltip({placement: 'bottom'})
+                .click(function(){
+                    $(this).tooltip('hide');
+                    $newTweet.toggleClass('opened');
+                    return false;
+                });
+            $newTweet.find('a.cancel').click(function(){
+                $newTweet.toggleClass('opened');
+                $flashMsg.hide();
+                return false;
+            });
+            
+            var updateRemainNum = function () {
+                var text = twitterText($input.val());
+                $remain.text(text.remain);
+                if (text.valid) {
+                    $send.removeClass('disabled');
+                } else {
+                    $send.addClass('disabled');
+                }
+            };
+            
+            var flashMessage = function (message, isError) {
+                $flashMsg
+                    .removeClass('success error')
+                    .text(message)
+                    .addClass(isError ? 'error' : 'success')
+                    .fadeIn(100);
+                setTimeout(function(){
+                    $flashMsg.fadeOut(100);
+                }, 15e3);
+            }
+            
+            var enableInputs = function () {
+                $send.removeClass('disabled');
+                tweeting = false;
+                $tweeting.hide();
+                $input.prop('disabled', false);
+            };
+            
+            var success = function (resp) {
+                enableInputs();
+                flashMessage('Sent');
+                $input.val('');
+                updateRemainNum();
+                var tweet = new Tweet(preprocessTweet(resp)),
+                    view = new TweetView({model: tweet});
+                $tweetHolder.prepend(view.render().el);
+            };
+            
+            var error = function (resp) {
+                enableInputs();
+                flashMessage('Error: ' + resp.error, true);
+            };
+            
+            $send.click(function(){
+                var text = twitterText($input.val());
+                if (text.valid && !tweeting) {
+                    $send.addClass('disabled');
+                    tweeting = true;
+                    $tweeting.show();
+                    $input.prop('disabled', true);
+                    twitter.send($input.val(), success, error);
+                }
+                return false;
+            });
+            
+            $input.bind('keyup', function(){
+                clearTimeout(keyPressTimeout);
+                keyPressTimeout = setTimeout(updateRemainNum, 100);
+            });
         }
 
     });

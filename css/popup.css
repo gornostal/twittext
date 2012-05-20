@@ -16,6 +16,7 @@ a:hover {
 a.external:visited {
     color: #61C;
 }
+
 ::-webkit-scrollbar {
     width: 6px;
 }
@@ -35,6 +36,7 @@ a.external:visited {
     max-height: 550px;
     overflow-x: hidden;
     overflow-y: scroll;
+    position: relative;
 }
 .timeline .tweets {
     
@@ -153,7 +155,7 @@ a.external:visited {
     text-decoration: none;
     margin: 3px 0;
     margin-right: 10px;
-    cursor: url(../images/magnify.cur), pointer;
+    cursor: url(../img/magnify.cur), pointer;
 }
 .tweet a.media:hover {
     -webkit-box-shadow:  1px 1px 3px 0px rgba(0, 0, 0, 0.5);
@@ -189,7 +191,7 @@ a.external:visited {
 }
 .tweet .rt_by i {
     display: inline-block;
-    background: url('../images/twitter_sprite.png') no-repeat -78px -4px;
+    background: url('../img/twitter_sprite.png') no-repeat -78px -4px;
     width: 14px;
     height: 8px;
 }
@@ -217,7 +219,7 @@ a.external:visited {
     display: block;
 }
 .tweet .actions .retweet {
-    background: url('../images/twitter_sprite.png') no-repeat -78px 0;
+    background: url('../img/twitter_sprite.png') no-repeat -78px 0;
 }
 .tweet .actions .retweet:hover {
     background-position: -94px 0;
@@ -230,7 +232,7 @@ a.external:visited {
     display: block !important;
 }
 .tweet .actions .favorite {
-    background: url('../images/twitter_sprite.png') no-repeat -30px 0;
+    background: url('../img/twitter_sprite.png') no-repeat -30px 0;
     width: 15px;
     height: 15px;
 }
@@ -248,7 +250,7 @@ a.external:visited {
     display: block !important;
 }
 .tweet .actions .delete{
-    background: url('../images/twitter_sprite.png') no-repeat -125px 0;
+    background: url('../img/twitter_sprite.png') no-repeat -125px 0;
 }
 .tweet .actions .delete:hover {
     background-position: -139px 0;
@@ -329,7 +331,7 @@ a.external:visited {
     padding: 10px;
     box-sizing: border-box;
     color: #999;
-    background: url(../images/ajax-loader.gif) 50% 50% no-repeat;
+    background: url(../img/ajax-loader.gif) 50% 50% no-repeat;
     padding-top: 18px;
     font-size: 13px;
 }
@@ -368,4 +370,100 @@ body.sign-in .timeline {
 }
 body.sign-in .sign_in_with_twitter {
     display: block !important;
+}
+
+.new-tweet {
+    height: 0;
+    margin-top: -1px;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.18);
+    -webkit-transition: height 0.3s ease-out;
+    -moz-transition: height 0.3s ease-out;
+    transition: height 0.3s ease-out;
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.01)  0%, rgba(0, 0, 0, 0.05) 100%);
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.01)  0%, rgba(0, 0, 0, 0.05) 100%);
+}
+.new-tweet .padding {
+    padding: 10px;
+}
+.new-tweet .whats-happening {
+    padding-bottom: 5px;
+}
+.new-tweet.opened {
+    height: 110px;
+}
+.new-tweet .remain {
+    float: left;
+    margin-left: 5px;
+    margin-top: 12px;
+}
+.new-tweet.opened .new-tweet-toggle {
+    display: none;
+}
+.new-tweet .tweet-editor {
+    width: 355px;
+    height: 55px;
+    float: left;
+    resize: none;
+    margin-right: 5px;
+}
+.new-tweet .tweeting {
+    position: absolute;
+    display: none;
+    top: 60px;
+    left: 200px;
+    width: 16px;
+    height: 16px;
+    background: url(../img/tweeting.gif) no-repeat;
+}
+.new-tweet h4 {
+    float: left;
+}
+.new-tweet .flash-msg {
+    float: left;
+    display: block;
+    margin-left: 15px;
+    font-size: 13px;
+}
+.new-tweet .flash-msg.success {
+    color: #468847;
+}
+.new-tweet .flash-msg.error {
+    color: #B94A48;
+}
+.new-tweet .btn {
+    margin: 0 0 5px 5px;
+    width: 42px;
+}
+.new-tweet .inner {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+.new-tweet-toggle {
+    z-index: 100;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    border-top: none;
+    padding: 3px;
+    bottom: -22px;
+    right: 90px;
+    opacity: 0.4;
+    background: white;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.12);
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    outline: none !important;
+}
+.new-tweet-toggle:hover {
+    border-color: #444;
+    opacity: 0.8;
 }

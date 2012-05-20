@@ -63,6 +63,7 @@ define(['underscore', 'backbone'], function(_, Backbone){
         },
 
         destroyAll: function(){
+            this.data = {};
             localStorage.removeItem(this.name);
         }
 

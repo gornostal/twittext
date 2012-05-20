@@ -141,6 +141,7 @@ define([
             var sign = getSign(request);
             $.ajax({
                 type: request.method,
+                dataType: 'json',
                 url: request.url,
                 timeout: request.timeout || 30e3,
                 data: request.params,
@@ -150,6 +151,10 @@ define([
                 dataType: request.dataType || 'json',
                 success: request.success,
                 error: function (xhr) {
+                    if (typeof request.error == 'function') {
+                        var response = JSON.parse(xhr.responseText);
+                        request.error(response);
+                    }
                     if (xhr.status == 401) {
                         $.publish('error.unauthorized');
                     }

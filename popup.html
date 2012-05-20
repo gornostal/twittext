@@ -10,9 +10,25 @@
     <body>
         
         <div class="timeline">
-            <div id="home-timeline" class="tweets">
-                
+            <div class="new-tweet">
+                <div class="inner">
+                    <div class="padding">
+                        <h4 class="whats-happening">What's happening?</h4>
+                        <div class="flash-msg success error"></div>
+                        <div class="clearfix"></div>
+                        <textarea class="tweet-editor"></textarea>
+                        <a href="#" class="send btn btn-primary disabled">Tweet</a>
+                        <a href="#" class="btn cancel">Close</a>
+                        <div class="remain">140</div>
+                        <div class="tweeting"></div>
+                    </div>
+                </div>
+                <a href="#" class="new-tweet-toggle" title="Compose new Tweet">
+                    <i class="icon-edit"></i>
+                </a>
             </div>
+            
+            <div id="home-timeline" class="tweets"></div>
             <div class="loading-tweets">
                 <div>
                     An error has occurred while loading tweets.<br />
@@ -38,7 +54,7 @@
             <a class="close-link" data-dismiss="modal">Close</a>
             <div class="modal-body">
                 <a href="#" target="_blank" class="image">
-                    <img src="images/ajax-loader.gif" class="preload" alt="" />
+                    <img src="img/ajax-loader.gif" class="preload" alt="" />
                 </a>
                 <div class="tweet-holder">
 

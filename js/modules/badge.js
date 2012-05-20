@@ -4,9 +4,9 @@ define([], function () {
 
         var bgColor = bgColor || [225, 0, 0, 200],
             icon = {
-                normal: 'images/icon_19.png',
-                unread: 'images/icon_19_unread.png',
-                noauth: 'images/icon_19_noauth.png'
+                normal: 'img/icon_19.png',
+                unread: 'img/icon_19_unread.png',
+                noauth: 'img/icon_19_noauth.png'
             };
         chrome.browserAction.setBadgeBackgroundColor({color: bgColor});
 
