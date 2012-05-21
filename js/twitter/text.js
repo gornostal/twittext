@@ -3,7 +3,7 @@ define(['underscore'], function (_) {
     // replacement for urls
     var urlReplacement = (function(){
         var r=[]; 
-        for (var i = 0; i < 21; i++) {
+        for (var i = 0; i < 20; i++) {
             r[i]='x';
         } 
         return r.join('');
@@ -16,7 +16,7 @@ define(['underscore'], function (_) {
             maxLength = 140,
             valid = false,
             remain = maxLength,
-            regex = /(^|\s|\()(www\.[a-z0-9\-\.]+\.[a-z]+|http(s?):\/\/)[a-z0-9.\/\?\=\-\%\#|\(\)]+/ig;
+            regex = /(^|\s|\()(www\.[a-z0-9\-\.]+\.[a-z]+|http(s?):\/\/)[a-z0-9.\/\?\=\-\&_\%\#|\(\)]+/ig;
         
         text = text.replace(regex, urlReplacement);
         
