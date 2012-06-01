@@ -11,7 +11,7 @@ define([
     'models/tweet',
     'modules/lastReadTime',
     'twitterText'
-], function ($, _, Backbone, tweets, TweetView, Badge, TwitterApi, OAuth, 
+], function ($, _, Backbone, tweets, TweetView, Badge, TwitterApi, OAuth,
             preprocessTweet, Tweet, LastReadTime, twitterText) {
 
     var oauth = new OAuth(),
@@ -54,7 +54,7 @@ define([
                     badge.resetUnread();
                 }
             });
-            
+
             this.initNewTweet();
 
             new Badge().resetUnread();
@@ -143,7 +143,7 @@ define([
             });
             window.close();
         },
-        
+
         initNewTweet: function () {
             var $newTweet = $('.new-tweet'),
                 keyPressTimeout,
@@ -154,7 +154,7 @@ define([
                 $tweetHolder = $('#home-timeline'),
                 $flashMsg = $newTweet.find('.flash-msg'),
                 $input = $newTweet.find('.tweet-editor');
-                
+
             $('.new-tweet-toggle')
                 .tooltip({placement: 'bottom'})
                 .click(function(){
@@ -167,7 +167,7 @@ define([
                 $flashMsg.hide();
                 return false;
             });
-            
+
             var updateRemainNum = function () {
                 var text = twitterText($input.val());
                 $remain.text(text.remain);
@@ -177,7 +177,7 @@ define([
                     $send.addClass('disabled');
                 }
             };
-            
+
             var flashMessage = function (message, isError) {
                 $flashMsg
                     .removeClass('success error')
@@ -187,15 +187,15 @@ define([
                 setTimeout(function(){
                     $flashMsg.fadeOut(100);
                 }, 15e3);
-            }
-            
+            };
+
             var enableInputs = function () {
                 $send.removeClass('disabled');
                 tweeting = false;
                 $tweeting.hide();
                 $input.prop('disabled', false);
             };
-            
+
             var success = function (resp) {
                 enableInputs();
                 flashMessage('Sent');
@@ -205,12 +205,12 @@ define([
                     view = new TweetView({model: tweet});
                 $tweetHolder.prepend(view.render().el);
             };
-            
+
             var error = function (resp) {
                 enableInputs();
                 flashMessage('Error: ' + resp.error, true);
             };
-            
+
             $send.click(function(){
                 var text = twitterText($input.val());
                 if (text.valid && !tweeting) {
@@ -222,7 +222,7 @@ define([
                 }
                 return false;
             });
-            
+
             $input.bind('keyup', function(){
                 clearTimeout(keyPressTimeout);
                 keyPressTimeout = setTimeout(updateRemainNum, 100);

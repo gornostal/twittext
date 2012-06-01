@@ -25,7 +25,7 @@ a.external:visited {
 ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    background: rgba(0,0,0,0.15); 
+    background: rgba(0,0,0,0.15);
     -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
 }
 ::-webkit-scrollbar-thumb:window-inactive {
@@ -39,7 +39,7 @@ a.external:visited {
     position: relative;
 }
 .timeline .tweets {
-    
+
 }
 .timeline .tweet:first-child {
     margin-top: 0;
@@ -50,7 +50,7 @@ a.external:visited {
 
 .tweet .avatar,
 .tweet a.rt_account,
-.tweet a.rt_account img, 
+.tweet a.rt_account img,
 .tweet .media,
 .tweet .media img {
     -webkit-border-radius: 5px;
@@ -63,12 +63,12 @@ a.external:visited {
     min-height: 50px;
     box-sizing: border-box;
     padding: 9px 12px 9px 70px;
-    
+
     background-size: 100% 1px, 100% 1px, auto;
     background-position: 50% 100%, 50% 100%, 50% 0;
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-origin: padding-box, border-box, padding-box;
-    border-bottom: 1px solid transparent;        
+    border-bottom: 1px solid transparent;
     background-image: -webkit-linear-gradient(0deg, rgba(0,0,0,0.01), rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.01));
 
 }
@@ -174,13 +174,13 @@ a.external:visited {
 }
 .tweet .text a.mention:hover {
     text-decoration: none;
-} 
+}
 .tweet .text a.mention s {
     text-decoration: none;
-} 
+}
 .tweet .text a.mention b {
     font-weight: normal;
-} 
+}
 .tweet .text a.mention:hover b {
     text-decoration: underline;
 }
@@ -357,10 +357,12 @@ a.external:visited {
 
 body.sign-in {
     min-height: 0;
-    width: 153px;
+    /*width: 155px;*/
 }
 #sign-in-with-twitter {
     display: none;
+    width: 155px;
+    margin: 10px auto;
 }
 body.sign-in #sign-in-with-twitter {
     display: block;
