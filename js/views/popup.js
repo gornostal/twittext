@@ -155,6 +155,20 @@ define([
                 $flashMsg = $newTweet.find('.flash-msg'),
                 $input = $newTweet.find('.tweet-editor');
 
+            var messageStorage = {
+                set: function (msg) {
+                    localStorage.setItem('message', msg);
+                },
+                get: function () {
+                    return localStorage.getItem('message') || '';
+                },
+                clear: function () {
+                    localStorage.removeItem('message');
+                }
+            };
+
+            $input.val(messageStorage.get());
+
             $('.new-tweet-toggle')
                 .tooltip({placement: 'bottom'})
                 .click(function(){
@@ -171,12 +185,14 @@ define([
             var updateRemainNum = function () {
                 var text = twitterText($input.val());
                 $remain.text(text.remain);
+                messageStorage.set($input.val());
                 if (text.valid) {
                     $send.removeClass('disabled');
                 } else {
                     $send.addClass('disabled');
                 }
             };
+            updateRemainNum();
 
             var flashMessage = function (message, isError) {
                 $flashMsg
@@ -199,6 +215,7 @@ define([
             var success = function (resp) {
                 enableInputs();
                 flashMessage('Sent');
+                messageStorage.clear();
                 $input.val('');
                 updateRemainNum();
                 var tweet = new Tweet(preprocessTweet(resp)),
