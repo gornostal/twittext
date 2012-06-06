@@ -244,6 +244,19 @@ define([
                 clearTimeout(keyPressTimeout);
                 keyPressTimeout = setTimeout(updateRemainNum, 100);
             });
+
+            $('#toggle-emot')
+                .tooltip({placement: 'bottom'})
+                .click(function(){
+                    $newTweet.toggleClass('emoticons-visible');
+                    return false;
+                });
+            $('.emoticon-list a').click(function(){
+                $input.val($input.val() + $(this).text());
+                $newTweet.removeClass('emoticons-visible');
+                updateRemainNum();
+                return false;
+            });
         }
 
     });

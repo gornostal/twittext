@@ -8,7 +8,7 @@
         <script data-main="js/main" src="js/libs/require/require.js"></script>
     </head>
     <body>
-        
+
         <div class="timeline">
             <div class="new-tweet">
                 <div class="inner">
@@ -17,9 +17,57 @@
                         <div class="flash-msg success error"></div>
                         <div class="clearfix"></div>
                         <textarea class="tweet-editor"></textarea>
+                        <div class="emoticon-list">
+                            <a href="#" title="Insert">☺</a>
+                            <a href="#" title="Insert">☻</a>
+                            <a href="#" title="Insert">シ</a>
+                            <a href="#" title="Insert">ッ</a>
+                            <a href="#" title="Insert">ツ</a>
+                            <a href="#" title="Insert">❤</a>
+                            <a href="#" title="Insert">♡</a>
+                            <a href="#" title="Insert">←</a>
+                            <a href="#" title="Insert">→</a>
+                            <a href="#" title="Insert">ಠ</a>
+                            <a href="#" title="Insert">◎</a>
+                            <a href="#" title="Insert">◕</a>
+                            <a href="#" title="Insert">★</a>
+                            <a href="#" title="Insert">☆</a>
+                            <a href="#" title="Insert">✰</a>
+                            <a href="#" title="Insert">✪</a>
+                            <a href="#" title="Insert">❅</a>
+                            <a href="#" title="Insert">❆</a>
+                            <a href="#" title="Insert">☀</a>
+                            <a href="#" title="Insert">☂</a>
+                            <a href="#" title="Insert">☃</a>
+                            <a href="#" title="Insert">☼</a>
+                            <a href="#" title="Insert">℃</a>
+                            <a href="#" title="Insert">℉</a>
+                            <a href="#" title="Insert">€</a>
+                            <a href="#" title="Insert">$</a>
+                            <a href="#" title="Insert">₤</a>
+                            <a href="#" title="Insert">£</a>
+                            <a href="#" title="Insert">¥</a>
+                            <a href="#" title="Insert">♫</a>
+                            <a href="#" title="Insert">♬</a>
+                            <a href="#" title="Insert">✌</a>
+                            <a href="#" title="Insert">✉</a>
+                            <a href="#" title="Insert">©</a>
+                            <a href="#" title="Insert">™</a>
+                            <a href="#" title="Insert">✔</a>
+                            <a href="#" title="Insert">✘</a>
+                            <a href="#" title="Insert">⌚</a>
+                            <a href="#" title="Insert">☎</a>
+                            <a href="#" title="Insert">✂</a>
+                            <a href="#" title="Insert">♕</a>
+                            <a href="#" title="Insert">☠</a>
+                            <a href="#" title="Insert">☢</a>
+                            <a href="#" title="Insert">☯</a>
+                            <a href="#" title="Insert">✈</a>
+                        </div>
                         <a href="#" class="send btn btn-primary disabled">Tweet</a>
                         <a href="#" class="btn cancel">Close</a>
                         <div class="remain">140</div>
+                        <a href="#" title="Show emoticons" class="emoticons" id="toggle-emot">☺</a>
                         <div class="tweeting"></div>
                     </div>
                 </div>
@@ -27,7 +75,7 @@
                     <i class="icon-edit"></i>
                 </a>
             </div>
-            
+
             <div id="home-timeline" class="tweets"></div>
             <div class="loading-tweets">
                 <div>
@@ -36,9 +84,9 @@
                 </div>
             </div>
         </div>
-        
+
         <button class="btn btn-large btn-info" id="sign-in-with-twitter">Sign in with <strong>twitter</strong></button>
-        
+
         <!-- modals -->
         <div id="areYouSureModal" class="modal hide fade" style="display: none; ">
             <div class="modal-body">
@@ -49,7 +97,7 @@
                 <a href="#" class="btn btn-primary">Yes</a>
             </div>
         </div>
-        
+
         <div class="modal hide fade" id="ip" style="display: none">
             <a class="close-link" data-dismiss="modal">Close</a>
             <div class="modal-body">
@@ -61,6 +109,6 @@
                 </div>
             </div>
         </div>
-        
+
     </body>
 </html>

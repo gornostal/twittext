@@ -410,6 +410,9 @@ body.sign-in .sign_in_with_twitter {
     resize: none;
     margin-right: 5px;
 }
+.emoticons-visible.new-tweet .tweet-editor {
+    visibility: hidden;
+}
 .new-tweet .tweeting {
     position: absolute;
     display: none;
@@ -468,4 +471,49 @@ body.sign-in .sign_in_with_twitter {
 .new-tweet-toggle:hover {
     border-color: #444;
     opacity: 0.8;
+}
+
+.emoticons {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    display: block;
+    font-size: 24px;
+    text-decoration: none;
+    color: black;
+    top: 76px;
+    right: 104px;
+    opacity: 0.3;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+.emoticons:hover {
+    opacity: 1;
+    text-decoration: none;
+}
+.emoticon-list {
+    position: absolute;
+    width: 365px;
+    height: 65px;
+    display: none;
+    top: 30px;
+    left: 9px;
+    overflow: hidden;
+}
+.emoticon-list a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #000;
+    opacity: 0.6;
+    display: block;
+    width: 24px;
+    height: 24px;
+    float: left;
+}
+.emoticon-list a:hover {
+    opacity: 1;
+}
+.emoticons-visible .emoticon-list {
+    display: block;
 }
