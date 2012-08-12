@@ -5,16 +5,16 @@ define([
     'oauth',
     'text!templates/options.html',
     'modules/badge',
-    'collections/tweets'
-], function ($, _, Backbone, OAuth, optionsTemplate, Badge, tweets) {
+    'collections/tweets',
+    'modules/getTemplate'
+], function ($, _, Backbone, OAuth, optionsTemplate, Badge, tweets, getTemplate) {
 
-    var oauth = new OAuth();
+    var oauth = new OAuth(),
+        template = getTemplate('optionsTemplate', optionsTemplate);
 
     var OptionsView = Backbone.View.extend({
 
         el: 'body',
-
-        template: _.template(optionsTemplate),
 
         events: {
             'click a.sign-out': 'signOut',
@@ -23,7 +23,9 @@ define([
 
         render: function () {
             var token = oauth.getAccessToken();
-            $('#ph').html(this.template(token || {screen_name: null}));
+            template(token || {screen_name: null}, function (html) {
+                $('#ph').html(html);
+            });
         },
 
         signOut: function () {

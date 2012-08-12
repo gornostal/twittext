@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sandboxed Template Renderer</title>
+    <script src="/js/libs/underscore/underscore-min.js"></script>
+</head>
+<body>
+    <script>
+        var templates = {};
+        window.addEventListener('message', function (event) {
+            var template;
+            if (typeof templates[event.data.templateName] == 'undefined') {
+                template = _.template(event.data.template);
+                templates[event.data.templateName] = template;
+            } else {
+                template = templates[event.data.templateName];
+            }
+            event.source.postMessage({
+                id: event.data.id,
+                result: template(event.data.context)
+            }, event.origin);
+        });
+    </script>
+</html>

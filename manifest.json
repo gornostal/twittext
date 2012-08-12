@@ -1,12 +1,14 @@
 {
     "name": "Twittext",
     "description": "A lightweight Google Chrome extension for Twitter",
-    "background_page": "background.html",
-
+    "background": {
+        "page": "background.html"
+    },
+    "manifest_version": 2,
     "browser_action": {
         "default_icon": "img/icon_19.png",
         "default_title": "Twittext",
-        "popup": "popup.html"
+        "default_popup": "popup.html"
     },
     "icons": {
         "128": "img/icon_128.png",
@@ -14,10 +16,18 @@
         "48": "img/icon_48.png"
     },
     "options_page": "options.html",
-    "version": "1.5.0",
+    "version": "1.6.0",
     "permissions": [
         "tabs",
+        "background",
         "https://api.twitter.com/",
         "https://userstream.twitter.com/"
-    ]
+    ],
+    "web_accessible_resources": [
+        "background.html",
+        "sandboxed/template-renderer.html"
+    ],
+    "sandbox": {
+        "pages": ["sandboxed/template-renderer.html"]
+    }
 }

@@ -7,19 +7,20 @@ define([
     'twitter',
     'helpers/prettyDate',
     'oauth',
+    'modules/getTemplate',
     'modules/jquery/imagePreview',
     'bootstrap'
-], function ($, _, Backbone, tweetTemplate, parseEntities, TwitterApi, prettyDate, OAuth) {
+], function ($, _, Backbone, tweetTemplate, parseEntities,
+    TwitterApi, prettyDate, OAuth, getTemplate) {
 
     var oauth = new OAuth(),
         twitter = new TwitterApi(oauth),
-        userId = oauth.getAccessToken().user_id;
+        userId = oauth.getAccessToken().user_id,
+        template = getTemplate('tweetTemplate', tweetTemplate);
 
     var TweetView = Backbone.View.extend({
 
         tagName: "div",
-
-        template: _.template(tweetTemplate),
 
         events: {
             'click .actions .delete': 'deleteTweet',
@@ -33,12 +34,15 @@ define([
 
         render: function () {
             if (!document.getElementById(this.model.id)) {
-                var obj = this.model.toJSON();
+                var obj = this.model.toJSON(),
+                    that = this;
                 if (typeof obj.retweeted_status != 'object') {
                     obj.retweeted_status = null;
                 }
-                $(this.el).html(this.template(parseEntities(obj)));
-                this.bindEventListeners();
+                template(parseEntities(obj), function (html) {
+                    $(that.el).html(html);
+                    that.bindEventListeners();
+                });
             }
             return this;
         },

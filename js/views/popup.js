@@ -95,9 +95,11 @@ define([
                 $tweets = $('#home-timeline .tweet'),
                 top = $('#home-timeline').height() - 800;
 
+            $('#loading-tweets').hide();
             $timeline.addClass('autoload');
             $timeline.bind('scroll.autoload', function () {
                 if ($(this).scrollTop() > top) {
+                    $('#loading-tweets').show();
                     $timeline.unbind('scroll.autoload');
                     that.loadOlderTweets($tweets.last().data('post_id'));
                 }
