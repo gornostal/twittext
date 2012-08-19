@@ -16,16 +16,12 @@
         "48": "img/icon_48.png"
     },
     "options_page": "options.html",
-    "version": "1.6.0",
+    "version": "1.6.1",
     "permissions": [
         "tabs",
         "background",
         "https://api.twitter.com/",
         "https://userstream.twitter.com/"
-    ],
-    "web_accessible_resources": [
-        "background.html",
-        "sandboxed/template-renderer.html"
     ],
     "sandbox": {
         "pages": ["sandboxed/template-renderer.html"]
