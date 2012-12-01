@@ -1,9 +1,15 @@
 require.config({
+    shim: {
+        'backbone': {
+            deps: ['underscore', 'jquery'],
+            exports: 'Backbone'
+        }
+    },
     paths: {
         jquery: 'libs/jquery/jquery-min',
         pubsub: 'libs/jquery/pubsub',
         underscore: 'libs/underscore/underscore-min',
-        backbone: 'libs/backbone/backbone',
+        backbone: 'libs/backbone/backbone-min',
         text: 'libs/require/text',
         popup: 'extension/popup',
         background: 'modules/background',
