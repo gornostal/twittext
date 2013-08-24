@@ -1,11 +1,7 @@
 define(function () {
 
-    var iframe = document.createElement('iframe'),
+    var iframe = document.getElementById('templateRenderer'),
         callbacks = [];
-
-    iframe.src = 'sandboxed/template-renderer.html';
-    iframe.style.display = 'none';
-    document.body.appendChild(iframe);
 
     window.addEventListener('message', function (event) {
         callbacks.forEach(function (item, idx) {

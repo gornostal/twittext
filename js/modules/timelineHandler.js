@@ -64,7 +64,8 @@ define([
         // connect to the user stream
         var streamer = twitter.getUserStream(homeTimeline);
         if (!streamer.start()) {
-            streamer.restart();
+            streamer.abort();
+            streamer.start();
         }
 
         streamer.subscribe(addTweet, {tweet: true});

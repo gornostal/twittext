@@ -12,7 +12,7 @@ define(['underscore', 'streaming'], function (_, TwitterStreaming) {
         return {
             homeTimeline: function (callback, params, error) {
                 oauth.sendRequest({
-                    url: '1/statuses/home_timeline.json',
+                    url: '1.1/statuses/home_timeline.json',
                     params: _.extend({include_entities: true}, params || {}),
                     success: callback,
                     error: error
@@ -26,35 +26,35 @@ define(['underscore', 'streaming'], function (_, TwitterStreaming) {
             },
             destroy: function (id, callback) {
                 oauth.sendRequest({
-                    url: '1/statuses/destroy/' + id + '.json',
+                    url: '1.1/statuses/destroy/' + id + '.json',
                     method: 'post',
                     success: callback
                 });
             },
             favorite: function (id, callback) {
                 oauth.sendRequest({
-                    url: '1/favorites/create/' + id + '.json',
+                    url: '1.1/favorites/create/' + id + '.json',
                     method: 'post',
                     success: callback
                 });
             },
             unfavorite: function (id, callback) {
                 oauth.sendRequest({
-                    url: '1/favorites/destroy/' + id + '.json',
+                    url: '1.1/favorites/destroy/' + id + '.json',
                     method: 'post',
                     success: callback
                 });
             },
             retweet: function (id, callback) {
                 oauth.sendRequest({
-                    url: '1/statuses/retweet/' + id + '.json',
+                    url: '1.1/statuses/retweet/' + id + '.json',
                     method: 'post',
                     success: callback
                 });
             },
             send: function (text, callback, error) {
                 oauth.sendRequest({
-                    url: '1/statuses/update.json',
+                    url: '1.1/statuses/update.json',
                     method: 'post',
                     params: {
                         status: text,
