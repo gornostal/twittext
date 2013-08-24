@@ -78,11 +78,13 @@ define([
         addAll: function () {
             var that = this,
                 max = 20; // maximum number of tweets when the popup opens
+            $('#home-timeline').hide();
             tweets.each(function () {
                 if (max-- > 0) {
                     that.addOne.apply(that, arguments);
                 }
             });
+            $('#home-timeline').show();
             this.bindScrollAutodownload();
         },
 
